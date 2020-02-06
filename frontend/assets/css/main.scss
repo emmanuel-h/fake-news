@@ -1,0 +1,13 @@
+
+// Set your colors
+$primary: #efaf30;
+$info: #efa64e;
+$light: #efebce;
+
+// Links
+$link: $primary;
+$link-focus-border: $primary;
+
+// Import Bulma and Buefy styles
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
