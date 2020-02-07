@@ -3,14 +3,12 @@ package fr.octopus.technight.config;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 import java.util.Collections;
 
 @Configuration
-@Profile("dev")
 public class CorsConfiguration {
 
     @Bean

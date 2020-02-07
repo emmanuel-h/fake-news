@@ -4,7 +4,7 @@
       Click below to reveal an undiscovered truth
     </p>
     <b-button
-      @click="hasGenerate = !hasGenerate"
+      @click="generateNews"
       type="is-primary custom-generate-button"
       size="is-medium"
     >
@@ -22,6 +22,16 @@ export default {
   data() {
     return {
       hasGenerate: false
+    }
+  },
+  methods: {
+    async generateNews() {
+      const generatedNews = await this.$axios
+        .$get('generation')
+        .catch((error) => console.log(error))
+
+      console.log(generatedNews)
+      this.hasGenerate = true
     }
   }
 }

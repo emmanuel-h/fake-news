@@ -65,7 +65,12 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseURL: 'http://localhost:8080/',
+    headers: {
+      Accept: 'application/json'
+    },
+  },
   /*
    ** Build configuration
    */
