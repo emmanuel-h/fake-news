@@ -1,2 +1,7 @@
 *.iml
 .idea/
+*.class
+/frontend/target/
+/frontend/node_modules/
+/frontend/.nuxt/
+/backend/target/
