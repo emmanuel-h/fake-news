@@ -2,8 +2,6 @@ package fr.octopus.technight.config;
 
 import fr.octopus.technight.aggregators.TeaserAggregationStrategy;
 import fr.octopus.technight.data.Teaser;
-import fr.octopus.technight.processors.FakeNewsProcessor;
-import org.apache.camel.AggregationStrategy;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
@@ -44,7 +42,7 @@ public class FakeNewsConfig extends RouteBuilder {
 
         from("direct:actor")
                 .loop(2)
-                    .to("rest:get:technight-couchbase/actor/designation?host=localhost:8081&singular=1&bridgeEndpoint=true")
+                    .to("rest:get:technight-couchbase/actor/designation?host=localhost:8081&singular={singular}&bridgeEndpoint=true")
                     .convertBodyTo(String.class)
                     .setHeader(simple("${header[CamelLoopIndex]}").getExpressionText(), simple("${body}"))
                 .end();
