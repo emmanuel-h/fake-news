@@ -10,7 +10,7 @@
     >
       Generate
     </b-button>
-    <Box v-if="hasGenerate" />
+    <Box v-if="hasGenerate" :news="generatedNews" />
   </div>
 </template>
 
@@ -21,16 +21,15 @@ export default {
   components: { Box },
   data() {
     return {
-      hasGenerate: false
+      hasGenerate: false,
+      generatedNews: undefined
     }
   },
   methods: {
     async generateNews() {
-      const generatedNews = await this.$axios
+      this.generatedNews = await this.$axios
         .$get('generation')
         .catch((error) => console.log(error))
-
-      console.log(generatedNews)
       this.hasGenerate = true
     }
   }
